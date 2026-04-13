@@ -84,6 +84,8 @@
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
+        const textureLoader = new THREE.TextureLoader();
+        const texture  = textureLoader.load('https://threejs.org/examples/textures/uv_grid_opengl.jpg');
         // --------------------------------------------------------
         // 2. LIGHTING (To make the 3D shape look 3D)
         // --------------------------------------------------------
@@ -106,6 +108,7 @@
         
         // MeshStandardMaterial reacts beautifully to light
         const material = new THREE.MeshStandardMaterial({ 
+            texture: texture,
             color: 0xffffff,
             roughness: 0.2, // Makes it shiny
             metalness: 0.8, // Makes it look a bit metallic
